@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Dashboard | SPK APP';
+		$data['page'] = 'Dashboard';
 		
 		$this->template->load('templates/template','index',$data);
 		

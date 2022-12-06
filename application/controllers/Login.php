@@ -10,6 +10,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Login | SPK APP';
+		$data['page'] = 'Login';
 		
 		$this->template->load('templates/template-login','login/login', $data);
 		

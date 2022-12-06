@@ -1,11 +1,10 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="<?= base_url()?>dashboard">Home</a></li>
+          <li class="breadcrumb-item active"><?= $page?></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -20,15 +19,9 @@
 						<div class="card-body">
 							<h5 class="card-title">SPK APP <span>| Welcome</span></h5>
 
-							<div class="d-flex align-items-center">
-								<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-									<i class="bi bi-cart"></i>
-								</div>
-								<div class="ps-3">
-									<h6>145</h6>
-									<span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-								</div>
+							<div class="align-items-center text-center">
+								<h1>Selamat Datang di SPK APP</h1>
+								<p>Aplikasi Sistem Penunjang Keputusan dengan 3 metode pengambilan keputusan diantaranya metode SAW, metode WP, dan metode TOPSIS</p>
 							</div>
 						</div>
 
