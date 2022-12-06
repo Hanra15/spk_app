@@ -166,7 +166,7 @@
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>spk_">
+            <a href="<?= base_url()?>spk_topsis">
               <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
             </a>
           </li>
@@ -180,17 +180,17 @@
         </a>
         <ul id="hasil-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?= base_url()?>spk_saw">
+            <a href="<?= base_url()?>spk_saw/hasil">
               <i class="bi bi-circle"></i><span>SPK SAW</span>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>spk_wp">
+            <a href="<?= base_url()?>spk_wp/hasil">
               <i class="bi bi-circle"></i><span>SPK WP</span>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>spk_">
+            <a href="<?= base_url()?>spk_topsis/hasil">
               <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
             </a>
           </li>
@@ -198,7 +198,12 @@
         </ul>
       </li><!-- End Components Nav -->
 
-      
+			<li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url()?>perbandingan">
+          <i class="bi bi-grid"></i>
+          <span>Perbandingan</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
       
 

@@ -16,4 +16,11 @@ class Spk_Topsis extends CI_Controller {
 		
 
 	}
+	public function hasil()
+	{
+		$data['title'] = 'Hasil SPK Topsis | SPK APP';
+		$data['page'] = 'Hasil SPK Topsis';
+
+		$this->template->load('templates/template','h_topsis',$data);
+	}
 }

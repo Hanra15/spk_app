@@ -16,4 +16,11 @@ class Spk_Saw extends CI_Controller {
 		
 
 	}
+	public function hasil()
+	{
+		$data['title'] = 'Hasil SPK SAW | SPK APP';
+		$data['page'] = 'Hasil SPK SAW';
+
+		$this->template->load('templates/template','h_saw',$data);
+	}
 }

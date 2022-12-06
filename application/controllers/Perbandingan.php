@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Perbandingan extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
@@ -9,10 +9,10 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard | SPK APP';
-		$data['page'] = 'Dashboard';
+		$data['title'] = 'Perbandingan | SPK APP';
+		$data['page'] = 'Perbandingan';
 		
-		$this->template->load('templates/template','index',$data);
+		$this->template->load('templates/template','perbandingan',$data);
 		
 
 	}

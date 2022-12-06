@@ -16,4 +16,11 @@ class Spk_WP extends CI_Controller {
 		
 
 	}
+	public function hasil()
+	{
+		$data['title'] = 'Hasil SPK WP | SPK APP';
+		$data['page'] = 'Hasil SPK WP';
+
+		$this->template->load('templates/template','h_wp',$data);
+	}
 }
