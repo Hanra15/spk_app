@@ -137,12 +137,12 @@
         </a>
         <ul id="data-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?= base_url()?>spk_saw">
+            <a href="<?= base_url()?>alternatif">
               <i class="bi bi-circle"></i><span>Alternatif</span>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>spk_wp">
+            <a href="<?= base_url()?>kriteria">
               <i class="bi bi-circle"></i><span>Kriteria & Bobot</span>
             </a>
           </li>
@@ -155,6 +155,30 @@
           <i class="bi bi-menu-button-wide"></i><span>Program</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="program-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url()?>spk_saw">
+              <i class="bi bi-circle"></i><span>SPK SAW</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= base_url()?>spk_wp">
+              <i class="bi bi-circle"></i><span>SPK WP</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= base_url()?>spk_">
+              <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#hasil-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Hasil</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="hasil-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="<?= base_url()?>spk_saw">
               <i class="bi bi-circle"></i><span>SPK SAW</span>
