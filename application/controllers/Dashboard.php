@@ -9,8 +9,8 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard | SPK APP';
-		$data['page'] = 'Dashboard';
+		$data['title'] = 'Home | SPK APP';
+		$data['page'] = 'Home';
 		
 		$this->template->load('templates/template','index',$data);
 		

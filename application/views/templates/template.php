@@ -26,8 +26,56 @@
   <link href="<?= base_url()?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?= base_url()?>assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+	<!-- Datatables CSS for Bootstrap -->
+	<link href="<?= base_url() ?>assets/vendor/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="<?= base_url()?>assets/css/style.css" rel="stylesheet">
+	<!-- Bootstrap 3.3.5 -->
+	<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+	<!-- jQuery 2.1.4 -->
+	<script src="<?= base_url() ?>assets/js/jQuery-2.1.4.min.js"></script>
+	<!-- Datatables Javascript for Bootstrap -->
+	<script src="<?= base_url() ?>assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url() ?>assets/vendor/datatables/js/dataTables.bootstrap.min.js"></script>
+	<script>
+        $(document).ready(function() {
+            var t = $('#dataTables1').DataTable({
+                "columnDefs": [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 0
+                }],
+                "responsive": true,
+                "bLengthChange": true,
+                "bInfo": true,
+                "oLanguage": {
+                    "sSearch": "<i class='fa fa-search fa-fw'></i> Pencarian : ",
+                    "sLengthMenu": "_MENU_ &nbsp;&nbsp;data per halaman",
+                    "sInfo": "Menampilkan _START_ s/d _END_ dari <b>_TOTAL_ data</b>",
+                    "sInfoEmpty": "",
+                    "sInfoFiltered": "(difilter dari _MAX_ total data)",
+                    "sZeroRecords": "Pencarian tidak ditemukan",
+                    "sEmptyTable": "Tidak ada data"
+                }
+            });
+
+            t.on('order.dt search.dt', function() {
+                t.column(0, {
+                    search: 'applied',
+                    order: 'applied'
+                }).nodes().each(function(cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+
+            $('#confirm-delete').on('show.bs.modal', function(e) {
+                $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            });
+        });
+    </script>
+
+	
 
 </head>
 
@@ -74,12 +122,7 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
+            
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -126,29 +169,58 @@
 
       <li class="nav-item">
         <a class="nav-link " href="<?= base_url()?>dashboard">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <i class="bi bi-house-fill"></i>
+          <span>Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
+			<li class="nav-item mt-3">
+				<h5>Master data</h5>
+				<hr>
+			</li>
+
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#data-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#kriteria-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-card-list"></i><span>Kriteria</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="data-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="kriteria-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="<?= base_url()?>alternatif">
-              <i class="bi bi-circle"></i><span>Alternatif</span>
+            <a href="<?= base_url()?>kriteria">
+              <i class="bi bi-circle"></i><span>Data Kriteria</span>
             </a>
           </li>
           <li>
             <a href="<?= base_url()?>kriteria">
-              <i class="bi bi-circle"></i><span>Kriteria & Bobot</span>
+              <i class="bi bi-circle"></i><span>Nilai Kriteria & Bobot</span>
             </a>
           </li>
           
         </ul>
       </li><!-- End Components Nav -->
+
+			<li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#alternatif-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-share"></i><span>Alternatif</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="alternatif-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url()?>alternatif">
+              <i class="bi bi-circle"></i><span>Data Alternatif</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= base_url()?>kriteria">
+              <i class="bi bi-circle"></i><span>Nilai Alternatif</span>
+            </a>
+          </li>
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+			<li class="nav-item mt-3">
+				<h5>Perhitungan</h5>
+				<hr>
+			</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#program-nav" data-bs-toggle="collapse" href="#">
@@ -167,30 +239,6 @@
           </li>
           <li>
             <a href="<?= base_url()?>spk_topsis">
-              <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
-            </a>
-          </li>
-          
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#hasil-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Hasil</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="hasil-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= base_url()?>spk_saw/hasil">
-              <i class="bi bi-circle"></i><span>SPK SAW</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url()?>spk_wp/hasil">
-              <i class="bi bi-circle"></i><span>SPK WP</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url()?>spk_topsis/hasil">
               <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
             </a>
           </li>
@@ -225,6 +273,26 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+	<!-- delete modal -->
+	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Konfirmasi</h4>
+				</div>
+				<div class="modal-body">
+					<p>Anda yakin akan menghapus data ini ?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-bs-dismiss="modal">Batal</button>
+					<a class="btn btn-danger btn-ok">Hapus</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
   <!-- Vendor JS Files -->
   <script src="<?= base_url()?>assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="<?= base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -234,9 +302,10 @@
   <script src="<?= base_url()?>assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="<?= base_url()?>assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="<?= base_url()?>assets/vendor/php-email-form/validate.js"></script>
+	
 
   <!-- Template Main JS File -->
-  <script src="<?= base_url()?>assets/js/main.js"></script>
+  <script src="<?= base_url()?>assets/js/admin_main.js"></script>
 
 </body>
 
