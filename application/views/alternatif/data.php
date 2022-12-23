@@ -43,6 +43,7 @@
 											<th><?= $no++;?></th>
 											<td><?php echo $row->nama_alternatif; ?></td>
 											<td>
+												<a href="<?php echo site_url('alternatif/lihat/' . $row->id_alternatif); ?>" class="btn btn-outline-info btn-xs" title="Lihat">Lihat</a> 
 												<a href="<?php echo site_url('alternatif/ubah/' . $row->id_alternatif); ?>" class="btn btn-outline-success btn-xs" title="Ubah">Ubah</a> 
 												<a href="<?php echo site_url('alternatif/hapus/' . $row->id_alternatif); ?>" class="btn btn-outline-danger btn-xs">Hapus</a> 
 											</td>
