@@ -175,6 +175,61 @@
       </li><!-- End Dashboard Nav -->
 
 			<li class="nav-item mt-3">
+				<h5>Metode</h5>
+				<hr>
+			</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#saw-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>SPK SAW</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="saw-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url()?>saw">
+              <i class="bi bi-circle"></i><span>Penilaian dan Hasil</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#wp-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>SPK WP</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="wp-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url()?>penilaian">
+              <i class="bi bi-circle"></i><span>Penilaian</span>
+            </a>
+          </li>
+          <li>
+            <a href="<?= base_url()?>hasil">
+              <i class="bi bi-circle"></i><span>Hasil</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+
+      </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#topsis-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>SPK TOPSIS</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="topsis-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="<?= base_url()?>topsis">
+              <i class="bi bi-circle"></i><span>Penilaian dan Hasil</span>
+            </a>
+          </li>
+          
+          
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item mt-3">
 				<h5>Master data</h5>
 				<hr>
 			</li>
@@ -186,14 +241,10 @@
         <ul id="kriteria-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="<?= base_url()?>kriteria">
-              <i class="bi bi-circle"></i><span>Data Kriteria</span>
+              <i class="bi bi-circle"></i><span>Data</span>
             </a>
           </li>
-          <li>
-            <a href="<?= base_url()?>kriteria">
-              <i class="bi bi-circle"></i><span>Nilai Kriteria & Bobot</span>
-            </a>
-          </li>
+         
           
         </ul>
       </li><!-- End Components Nav -->
@@ -205,53 +256,15 @@
         <ul id="alternatif-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="<?= base_url()?>alternatif">
-              <i class="bi bi-circle"></i><span>Data Alternatif</span>
+              <i class="bi bi-circle"></i><span>Data</span>
             </a>
           </li>
-          <li>
-            <a href="<?= base_url()?>kriteria">
-              <i class="bi bi-circle"></i><span>Nilai Alternatif</span>
-            </a>
-          </li>
+     
           
         </ul>
       </li><!-- End Components Nav -->
 
-			<li class="nav-item mt-3">
-				<h5>Perhitungan</h5>
-				<hr>
-			</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#program-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Program</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="program-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="<?= base_url()?>spk_saw">
-              <i class="bi bi-circle"></i><span>SPK SAW</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url()?>spk_wp">
-              <i class="bi bi-circle"></i><span>SPK WP</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= base_url()?>spk_topsis">
-              <i class="bi bi-circle"></i><span>SPK TOPSIS</span>
-            </a>
-          </li>
-          
-        </ul>
-      </li><!-- End Components Nav -->
-
-			<li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url()?>perbandingan">
-          <i class="bi bi-grid"></i>
-          <span>Perbandingan</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+			
 
       
 

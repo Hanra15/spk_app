@@ -22,6 +22,10 @@
 				<input name="id" type="hidden" value="<?php echo $id_kriteria; ?>">
 					
 					<div class="mb-3">
+						<label for="kode_kriteria" class="mb-3">Kode Kriteria</label>
+						<input name="kode_kriteria" id="kode_kriteria" class="form-control" required type="text" value="<?php echo set_value('kode_kriteria', $kode_kriteria); ?>" style="width: 30% !important;">
+					</div>
+					<div class="mb-3">
 						<label for="nama_kriteria" class="mb-3">Nama Kriteria</label>
 						<input name="nama_kriteria" id="nama_kriteria" class="form-control" required type="text" value="<?php echo set_value('nama_kriteria', $nama_kriteria); ?>" style="width: 30% !important;">
 					</div>

@@ -27,10 +27,11 @@
 									<thead>
 										<tr>
 											<th scope="col" width="5%">No</th>
+											<th scope="col">Kode <?= $page?></th>
 											<th scope="col">Nama <?= $page?></th>
 											<th scope="col">Bobot</th>
 											<th scope="col">Tipe</th>
-											<th scope="col" width="10%">Aksi</th>
+											<th scope="col">Aksi</th>
 											
 										</tr>
 									</thead>
@@ -43,12 +44,14 @@
 
 										<tr>
 											<th><?= $no++;?></th>
+											<td><?php echo $row->kode_kriteria; ?></td>
 											<td><?php echo $row->nama_kriteria; ?></td>
 											<td><?php echo $row->bobot; ?></td>
 											<td><?php echo $row->tipe; ?></td>
 											<td>
-												<a href="<?php echo site_url('kriteria/ubah/' . $row->id_kriteria); ?>" class="btn btn-outline-success btn-xs" title="Ubah">Ubah</a> 
+												<a href="<?php echo site_url('kriteria/ubah/' . $row->id_kriteria); ?>" class="btn btn-outline-success btn-xs " title="Ubah">Ubah</a> 
 												<a href="<?php echo site_url('kriteria/hapus/' . $row->id_kriteria); ?>" class="btn btn-outline-danger btn-xs">Hapus</a> 
+												<a href="<?php echo site_url('subkriteria/' . $row->id_kriteria); ?>" class="btn btn-outline-info btn-xs " title="Ubah">Subkriteria</a> 
 											</td>
 											
 										</tr>

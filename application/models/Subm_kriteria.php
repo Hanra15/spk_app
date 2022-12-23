@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class m_subkriteria extends CI_Model
+class Subm_kriteria extends CI_Model
 {
     public function get_all($id_kriteria)
     {

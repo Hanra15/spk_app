@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_kriteria extends CI_Model
 {
-	public function get_all()
+    public function get_all()
     {
         return $this->db->get('kriteria');
     }
@@ -11,6 +11,7 @@ class M_kriteria extends CI_Model
     public function insert()
     {
         $data = array(
+            'kode_kriteria' => $this->input->post('kode_kriteria'),
             'nama_kriteria' => $this->input->post('nama_kriteria'),
             'bobot' => $this->input->post('bobot'),
             'tipe' => $this->input->post('tipe')
@@ -21,12 +22,20 @@ class M_kriteria extends CI_Model
     public function update($id_kriteria)
     {
         $data = array(
+            'kode_kriteria' => $this->input->post('kode_kriteria'),
             'nama_kriteria' => $this->input->post('nama_kriteria'),
             'bobot' => $this->input->post('bobot'),
             'tipe' => $this->input->post('tipe')
         );
         $this->db->where('id_kriteria', $id_kriteria);
         return $this->db->update('kriteria', $data);
+    }
+
+    public function cek_kode_kriteria($kode, $kode_tmp)
+    {
+        $this->db->where('kode_kriteria', $kode);
+        $this->db->where('kode_kriteria <>', $kode_tmp);
+        return $this->db->get('kriteria');
     }
 
     public function get_by_id($id_kriteria)
@@ -47,3 +56,6 @@ class M_kriteria extends CI_Model
         return $this->db->get('kriteria');
     }
 }
+
+/* End of file Kriteria_model.php */
+/* Location: ./application/models/Kriteria_model.php */

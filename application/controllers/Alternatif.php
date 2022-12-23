@@ -1,35 +1,31 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Alternatif extends CI_Controller {
-	public function __construct(){
-		parent::__construct();
-		// if ($this->session->userdata('logged_in') !== TRUE) {
-        //     redirect('login');
-        // }
-		$this->load->helper('url');
-		$this->load->helper('form');
+class Alternatif extends CI_Controller
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('m_alternatif');
         $this->load->model('m_kriteria');
+        $this->load->model('subm_kriteria');
     }
-	
 
-	public function index()
-	{
-		$data['title'] = 'Alternatif | SPK APP';
-		$data['page'] = 'Alternatif';
-
-		$data['query'] = $this->m_alternatif->get_all()->result();
-		
-		$this->template->load('templates/template','alternatif/data',$data);
-		
-
-	}
-
-	public function tambah()
+    public function index()
     {
-		$data['title'] = 'Tambah Alternatif | SPK APP';
+        $data['title'] = 'Alternatif | SPK APP';
+		$data['page'] = 'Alternatif';
+        $data['query'] = $this->m_alternatif->get_all()->result();
+        $this->template->load('templates/template','alternatif/data', $data);
+    }
+
+    public function tambah()
+    {
+        $data['title'] = 'Tambah Alternatif | SPK APP';
 		$data['page'] = 'Tambah Alternatif';
         $this->form_validation->set_rules(
             'nama_alternatif',
@@ -41,8 +37,11 @@ class Alternatif extends CI_Controller {
         if ($this->form_validation->run() === FALSE) {
             $query = $this->m_kriteria->get_all();
             $data['query'] = $query->result();
-            
-            $this->template->load('templates/template','alternatif/tambah',$data);
+            foreach ($data['query'] as $row) {
+                $query2 = $this->subm_kriteria->get_by_id_kriteria($row->id_kriteria);
+                $data['sub'][$row->id_kriteria] = $query2->result();
+            }
+            $this->template->load('templates/template','alternatif/tambah', $data);
         } else {
             $this->m_alternatif->insert();
             $id_alternatif = $this->db->insert_id();
@@ -56,8 +55,8 @@ class Alternatif extends CI_Controller {
 
     public function ubah($id_alternatif = '')
     {
-		$data['title'] = 'Edit Alternatif | SPK APP';
-		$data['page'] = 'Edit Alternatif';
+        $data['title'] = 'Ubah Alternatif | SPK APP';
+		$data['page'] = 'Ubah Alternatif';
         $this->form_validation->set_rules(
             'nama_alternatif',
             'Nama Alternatif',
@@ -77,7 +76,7 @@ class Alternatif extends CI_Controller {
                 $res = $this->m_alternatif->get_selected_opt($id_alternatif, $row->id_kriteria)->row_array();
                 $data['alt'][$row->id_kriteria] = $res['id_subkriteria'];
             }
-            $this->template->load('templates/template','alternatif/edit',$data);
+            $this->template->load('templates/template','alternatif/ubah', $data);
         } else {
             $this->m_alternatif->update($id_alternatif);
             $query = $this->m_kriteria->get_all();
@@ -112,6 +111,8 @@ class Alternatif extends CI_Controller {
 
     public function lihat($id_alternatif = '')
     {
+        $data['title'] = 'Lihat Alternatif | SPK APP';
+		$data['page'] = 'Lihat Alternatif';
         $query_alt = $this->m_alternatif->get_by_id($id_alternatif);
         $result = $query_alt->row_array();
         $data['nama_alternatif'] = $result['nama_alternatif'];
@@ -126,6 +127,8 @@ class Alternatif extends CI_Controller {
                 $data['sub'][$row->id_kriteria] = $res2['nama_subkriteria'];
             }
         }
-        $this->load->view('alternatif/lihat', $data);
+        $this->template->load('templates/template','alternatif/lihat', $data);
     }
 }
+
+
