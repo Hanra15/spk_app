@@ -53,7 +53,7 @@ $route['subkriteria/hapus'] = 'subkriteria/hapus';
 $route['subkriteria/ubah'] = 'subkriteria/ubah';
 $route['subkriteria/tambah'] = 'subkriteria/tambah';
 $route['subkriteria/(:any)'] = 'subkriteria/index/$1';
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
